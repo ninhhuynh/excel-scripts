@@ -25,4 +25,5 @@ concat_df = pd.concat(dfs)
 with pd.ExcelWriter('output.xlsx') as writer:
     print("writing to new file...")
     concat_df.to_excel(writer, index=False)
-    print("completed!")
+    print("completed your data will be in output.xlsx! Press any key to exit...")
+    input()
