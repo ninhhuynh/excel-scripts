@@ -11,13 +11,12 @@ dfs: list[pd.DataFrame] = []
 for f in all_files:
     print(f"Reading: {f}")
     read_df = pd.read_excel(f, header=5, dtype=str)
-    dfs.append(read_df)
-
-for df in dfs:
-    print("Checking...", df)
-    for column_name in df.columns:
+    for column_name in read_df.columns:
         if column_name not in ["Product Name", "Seller SKU", "SKU ID", "URL", "Teasing Visitors", "Reminders", "FS Visitors", "Add to Cart Visitors", "Revenue", "Orders", "Buyers", "Conversion", "Unit Sold", "Price"]:
             raise ValueError(f"Column names not detected: {column_name}")
+    print("df read:", read_df)
+
+    dfs.append(read_df)
 
 print('Concatenating files...')
 concat_df = pd.concat(dfs)
