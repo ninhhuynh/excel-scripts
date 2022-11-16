@@ -1,0 +1,1 @@
+Create a folder name Data, put your xls file inside, then run main.py, result will be in output.xlsx file
